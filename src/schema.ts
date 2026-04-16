@@ -28,3 +28,33 @@ export interface EllipseElement extends BaseElement {
 export interface DiamondElement extends BaseElement {
     type: 'diamond'
 }
+
+export interface TextElement extends BaseElement {
+    type: "text";
+    text: string;
+    fontSize: number;
+    fontFamily: number;
+    textAlign: "left" | "center" | "right";
+    verticalAlign: "top" | "middle" | "bottom";
+    containerId: string | null;
+}
+
+export interface ArrowElement extends BaseElement {
+    type: "arrow";
+    points: [number, number][];
+    startBinding: { elementId: string; focus: number; gap: number } | null;
+    endBinding: { elementId: string; focus: number; gap: number } | null;
+}
+
+export interface LineElement extends BaseElement {
+    type: "line";
+    points: [number, number][];
+}
+
+export type ExcalidrawElement =
+    | RectangleElement
+    | EllipseElement
+    | DiamondElement
+    | TextElement
+    | ArrowElement
+    | LineElement;
